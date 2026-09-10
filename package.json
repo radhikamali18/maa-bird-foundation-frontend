@@ -9,9 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "dns2": "^3.1.1",
+    "mongoose": "^9.9.5",
     "next": "16.3.3",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-icons": "^5.7.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
