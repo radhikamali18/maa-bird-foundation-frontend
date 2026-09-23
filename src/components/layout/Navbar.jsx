@@ -19,12 +19,12 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-green-100 bg-white shadow-sm">
 
-      <div className="flex h-24 w-full items-center justify-between px-6 md:px-10 lg:px-12">
+      <div className="flex h-24 w-full items-center justify-between px-3 md:px-5 lg:px-6">
 
         {/* ================= LOGO - LEFT ================= */}
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-4"
+          className="flex shrink-0 items-center gap-3"
           onClick={() => setMenuOpen(false)}
         >
           <img
@@ -46,7 +46,7 @@ export default function Navbar() {
 
 
         {/* ================= DESKTOP MENU ================= */}
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden flex-1 items-center justify-end gap-5 lg:flex">
 
           {navLinks.map((link) => (
             <Link
@@ -61,7 +61,7 @@ export default function Navbar() {
           {/* Report Button */}
           <Link
             href="/report"
-            className="ml-2 whitespace-nowrap rounded-full bg-green-700 px-7 py-3.5 text-xl font-semibold text-white shadow-sm transition hover:bg-green-800"
+            className="whitespace-nowrap rounded-full bg-green-700 px-6 py-3 text-xl font-semibold text-white shadow-sm transition hover:bg-green-800"
           >
             Report a Bird
           </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
           {/* Support Button */}
           <Link
             href="/donate"
-            className="whitespace-nowrap rounded-full border-2 border-green-700 px-7 py-3.5 text-xl font-semibold text-green-700 transition hover:bg-green-50"
+            className="whitespace-nowrap rounded-full border-2 border-green-700 px-6 py-3 text-xl font-semibold text-green-700 transition hover:bg-green-50"
           >
             Support Us
           </Link>
@@ -102,7 +102,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-xl px-5 py-4 text-base font-semibold text-gray-700 transition hover:bg-green-50 hover:text-green-700"
+                className="rounded-xl px-5 py-4 text-xl font-semibold text-gray-700 transition hover:bg-green-50 hover:text-green-700"
               >
                 {link.name}
               </Link>
@@ -111,7 +111,7 @@ export default function Navbar() {
             <Link
               href="/report"
               onClick={() => setMenuOpen(false)}
-              className="mt-3 flex items-center justify-center gap-2 rounded-full bg-green-700 px-6 py-4 text-center text-base font-semibold text-white transition hover:bg-green-800"
+              className="mt-3 flex items-center justify-center gap-2 rounded-full bg-green-700 px-6 py-4 text-center text-xl font-semibold text-white transition hover:bg-green-800"
             >
               <img
                 src="/images/icons/release.png"
@@ -124,7 +124,7 @@ export default function Navbar() {
             <Link
               href="/donate"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 rounded-full border-2 border-green-700 px-6 py-4 text-center text-base font-semibold text-green-700 transition hover:bg-green-50"
+              className="flex items-center justify-center gap-2 rounded-full border-2 border-green-700 px-6 py-4 text-center text-xl font-semibold text-green-700 transition hover:bg-green-50"
             >
               <img
                 src="/images/icons/support 1.jpg"
