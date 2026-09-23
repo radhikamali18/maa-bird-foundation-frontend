@@ -14,10 +14,19 @@ export default function ContactPage() {
     <div className="bg-white">
 
       {/* ================= HEADER ================= */}
-      <section className="bg-green-50 px-5 py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+      <section
+        className="relative overflow-hidden bg-cover bg-center px-5 py-20 lg:px-8"
+        style={{
+          backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+        }}
+      >
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
+
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+
+          <span className="text-xl font-bold uppercase tracking-widest text-green-700">
             Get in Touch
           </span>
 
@@ -43,7 +52,7 @@ export default function ContactPage() {
             {/* Address */}
             <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm">
 
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 p-2">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 p-2">
                 <img
                   src="/images/icons/visit us.jpg"
                   alt="Location"
@@ -51,11 +60,11 @@ export default function ContactPage() {
                 />
               </div>
 
-              <h2 className="mt-5 text-xl font-bold text-green-950">
+              <h2 className="mt-5 text-2xl font-bold text-green-950">
                 Visit Us
               </h2>
 
-              <p className="mt-3 text-sm leading-7 text-gray-600">
+              <p className="mt-3 text-lg leading-7 text-gray-600">
                 Shop No. 9, Emerald Shopping Center,
                 <br />
                 Parsi Panchayat Road,
@@ -73,7 +82,7 @@ export default function ContactPage() {
             {/* Phone */}
             <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm">
 
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 p-2">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 p-2">
                 <img
                   src="/images/icons/call.webp"
                   alt="Phone"
@@ -81,11 +90,11 @@ export default function ContactPage() {
                 />
               </div>
 
-              <h2 className="mt-5 text-xl font-bold text-green-950">
+              <h2 className="mt-5 text-2xl font-bold text-green-950">
                 Call Us
               </h2>
 
-              <p className="mt-3 text-sm leading-7 text-gray-600">
+              <p className="mt-3 text-lg leading-7 text-gray-600">
                 For bird rescue assistance or general enquiries,
                 you can contact Maa Foundation.
               </p>
@@ -114,7 +123,7 @@ export default function ContactPage() {
             {/* Services */}
             <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm">
 
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 p-2">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 p-2">
                 <img
                   src="/images/icons/our services.png"
                   alt="Bird Services"
@@ -122,11 +131,11 @@ export default function ContactPage() {
                 />
               </div>
 
-              <h2 className="mt-5 text-xl font-bold text-green-950">
+              <h2 className="mt-5 text-2xl font-bold text-green-950">
                 Our Services
               </h2>
 
-              <ul className="mt-4 space-y-3 text-sm text-gray-600">
+              <ul className="mt-4 space-y-3 text-lg text-gray-600">
 
                 <li className="flex gap-2">
                   <span className="text-green-700">✓</span>
@@ -169,14 +178,14 @@ export default function ContactPage() {
                 Message Sent
               </h2>
 
-              <p className="mx-auto mt-4 max-w-xl leading-7 text-gray-600">
+              <p className="mx-auto mt-4 max-w-xl text-lg leading-7 text-gray-600">
                 Thank you for contacting Maa Foundation. Your message
                 has been submitted successfully.
               </p>
 
               <button
                 onClick={() => setSubmitted(false)}
-                className="mt-7 rounded-full bg-green-700 px-7 py-3.5 font-semibold text-white transition hover:bg-green-800"
+                className="mt-7 rounded-full text-xl bg-green-700 px-7 py-3.5 font-semibold text-white transition hover:bg-green-800"
               >
                 Send Another Message
               </button>
@@ -192,7 +201,7 @@ export default function ContactPage() {
 
               <div className="text-center">
 
-                <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+                <span className="text-xl font-bold uppercase tracking-widest text-green-700">
                   Send a Message
                 </span>
 
@@ -200,7 +209,7 @@ export default function ContactPage() {
                   How Can We Help?
                 </h2>
 
-                <p className="mt-3 text-gray-600">
+                <p className="mt-3 text-lg  text-gray-600">
                   Fill in the form below and share your message with us.
                 </p>
 
@@ -214,7 +223,7 @@ export default function ContactPage() {
 
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm font-semibold text-gray-700"
+                    className="mb-2 block text-lg font-semibold text-gray-700"
                   >
                     Your Name
                   </label>
@@ -224,7 +233,7 @@ export default function ContactPage() {
                     type="text"
                     required
                     placeholder="Enter your name"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
 
                 </div>
@@ -234,7 +243,7 @@ export default function ContactPage() {
 
                   <label
                     htmlFor="phone"
-                    className="mb-2 block text-sm font-semibold text-gray-700"
+                    className="mb-2 block text-lg font-semibold text-gray-700"
                   >
                     Phone Number
                   </label>
@@ -244,7 +253,7 @@ export default function ContactPage() {
                     type="tel"
                     required
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
 
                 </div>
@@ -257,7 +266,7 @@ export default function ContactPage() {
 
                 <label
                   htmlFor="email"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-lg font-semibold text-gray-700"
                 >
                   Email Address
                 </label>
@@ -267,7 +276,7 @@ export default function ContactPage() {
                   type="email"
                   required
                   placeholder="Enter your email"
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
@@ -278,7 +287,7 @@ export default function ContactPage() {
 
                 <label
                   htmlFor="subject"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-lg font-semibold text-gray-700"
                 >
                   Subject
                 </label>
@@ -286,7 +295,7 @@ export default function ContactPage() {
                 <select
                   id="subject"
                   required
-                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl text-lg border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 >
 
                   <option value="">
@@ -319,7 +328,7 @@ export default function ContactPage() {
 
                 <label
                   htmlFor="message"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-lg font-semibold text-gray-700"
                 >
                   Message
                 </label>
@@ -329,7 +338,7 @@ export default function ContactPage() {
                   rows="5"
                   required
                   placeholder="Write your message..."
-                  className="w-full resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full resize-none rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
@@ -338,7 +347,7 @@ export default function ContactPage() {
               {/* Submit */}
               <button
                 type="submit"
-                className="mt-8 w-full rounded-full bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
+                className="mt-8 w-full rounded-full text-lg  bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
               >
                 Send Message
               </button>
@@ -357,7 +366,7 @@ export default function ContactPage() {
 
           <div className="mb-8 text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Find Us
             </span>
 
@@ -365,7 +374,7 @@ export default function ContactPage() {
               Our Location
             </h2>
 
-            <p className="mt-3 text-gray-600">
+            <p className="mt-3 text-lg  text-gray-600">
               Maa Foundation, Andheri East, Mumbai
             </p>
 
@@ -378,7 +387,7 @@ export default function ContactPage() {
             <iframe
               title="Maa Foundation Location"
               src="https://www.google.com/maps?q=Shop%20No.%209%2C%20Emerald%20Shopping%20Center%2C%20Parsi%20Panchayat%20Road%2C%20Andheri%20West%2C%20Mumbai%20400053&output=embed"
-              className="h-[400px] w-full border-0"
+              className="h-[300px] w-full border-0"
               loading="lazy"
             />
 
@@ -408,14 +417,14 @@ export default function ContactPage() {
             Found an Injured Bird?
           </h2>
 
-          <p className="mt-4 leading-7 text-green-100">
+          <p className="mt-4 leading-7 text-xl  text-green-100">
             Share the bird's photo and location so the rescue team can
             understand the situation.
           </p>
 
           <a
             href="/report"
-            className="mt-7 inline-block rounded-full bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
+            className="mt-7 inline-block rounded-full text-lg  bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
           >
             Report an Injured Bird
           </a>

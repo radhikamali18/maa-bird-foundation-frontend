@@ -17,28 +17,28 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-green-100 bg-white/95 shadow-sm backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-green-100 bg-white shadow-sm">
 
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
+      <div className="flex h-24 w-full items-center justify-between px-6 md:px-10 lg:px-12">
 
-        {/* ================= LOGO ================= */}
+        {/* ================= LOGO - LEFT ================= */}
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="flex shrink-0 items-center gap-4"
           onClick={() => setMenuOpen(false)}
         >
           <img
             src="/images/logo.png"
             alt="Maa Foundation Logo"
-            className="h-12 w-12 object-contain"
+            className="h-20 w-20 object-contain"
           />
 
           <div className="leading-tight">
-            <p className="text-lg font-bold text-green-950">
+            <p className="text-2xl font-bold text-green-950">
               Maa Foundation
             </p>
 
-            <p className="text-xs text-green-700">
+            <p className="mt-1 text-xl font-medium text-green-700">
               Caring for Birds
             </p>
           </div>
@@ -46,28 +46,30 @@ export default function Navbar() {
 
 
         {/* ================= DESKTOP MENU ================= */}
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
 
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-semibold text-gray-700 transition hover:text-green-700"
+              className="whitespace-nowrap px-1 text-xl font-semibold text-gray-700 transition hover:text-green-700"
             >
               {link.name}
             </Link>
           ))}
 
+          {/* Report Button */}
           <Link
             href="/report"
-            className="rounded-full bg-green-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-800"
+            className="ml-2 whitespace-nowrap rounded-full bg-green-700 px-7 py-3.5 text-xl font-semibold text-white shadow-sm transition hover:bg-green-800"
           >
             Report a Bird
           </Link>
 
+          {/* Support Button */}
           <Link
             href="/donate"
-            className="rounded-full border border-green-700 px-5 py-2.5 text-sm font-semibold text-green-700 transition hover:bg-green-50"
+            className="whitespace-nowrap rounded-full border-2 border-green-700 px-7 py-3.5 text-xl font-semibold text-green-700 transition hover:bg-green-50"
           >
             Support Us
           </Link>
@@ -79,7 +81,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-green-100 text-2xl text-green-800 lg:hidden"
+          className="flex h-12 w-12 items-center justify-center rounded-xl border border-green-200 text-2xl text-green-800 lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
@@ -91,16 +93,16 @@ export default function Navbar() {
 
       {/* ================= MOBILE MENU ================= */}
       {menuOpen && (
-        <div className="border-t border-green-100 bg-white px-5 py-5 lg:hidden">
+        <div className="border-t border-green-100 bg-white px-6 py-6 lg:hidden">
 
-          <nav className="mx-auto flex max-w-7xl flex-col gap-2">
+          <nav className="flex flex-col gap-2">
 
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-xl px-4 py-3 font-semibold text-gray-700 transition hover:bg-green-50 hover:text-green-700"
+                className="rounded-xl px-5 py-4 text-base font-semibold text-gray-700 transition hover:bg-green-50 hover:text-green-700"
               >
                 {link.name}
               </Link>
@@ -109,17 +111,27 @@ export default function Navbar() {
             <Link
               href="/report"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 rounded-full bg-green-700 px-5 py-3 text-center font-semibold text-white transition hover:bg-green-800"
+              className="mt-3 flex items-center justify-center gap-2 rounded-full bg-green-700 px-6 py-4 text-center text-base font-semibold text-white transition hover:bg-green-800"
             >
-              🐦 Report an Injured Bird
+              <img
+                src="/images/icons/release.png"
+                alt="Bird"
+                className="h-5 w-5 object-contain"
+              />
+              Report an Injured Bird
             </Link>
 
             <Link
               href="/donate"
               onClick={() => setMenuOpen(false)}
-              className="rounded-full border border-green-700 px-5 py-3 text-center font-semibold text-green-700 transition hover:bg-green-50"
+              className="flex items-center justify-center gap-2 rounded-full border-2 border-green-700 px-6 py-4 text-center text-base font-semibold text-green-700 transition hover:bg-green-50"
             >
-              💚 Support Us
+              <img
+                src="/images/icons/support 1.jpg"
+                alt="Support"
+                className="h-5 w-5 object-contain"
+              />
+              Support Us
             </Link>
 
           </nav>

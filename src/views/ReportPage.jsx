@@ -54,10 +54,19 @@ export default function ReportPage() {
     <div className="bg-white">
 
       {/* ================= HEADER ================= */}
-      <section className="bg-green-50 px-5 py-16 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+      <section
+        className="relative overflow-hidden bg-cover bg-center px-5 py-16 lg:px-8"
+        style={{
+          backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+        }}
+      >
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
+
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+
+          <span className="text-xl font-bold uppercase tracking-widest text-green-700">
             Bird Rescue
           </span>
 
@@ -72,7 +81,6 @@ export default function ReportPage() {
 
         </div>
       </section>
-
 
       {/* ================= FORM ================= */}
       <section className="px-5 py-16 lg:px-8">
@@ -89,7 +97,7 @@ export default function ReportPage() {
                 Report Submitted
               </h2>
 
-              <p className="mx-auto mt-4 max-w-xl leading-7 text-gray-600">
+              <p className="mx-auto mt-4 text-xl max-w-xl leading-7 text-gray-600">
                 Thank you for reporting the injured bird. The information
                 you provided can help the rescue team understand the
                 situation and respond appropriately.
@@ -101,7 +109,7 @@ export default function ReportPage() {
                   setUserLocation("");
                   setMapLink("");
                 }}
-                className="mt-7 rounded-full bg-green-700 px-7 py-3.5 font-semibold text-white hover:bg-green-800"
+                className="mt-7 rounded-full text-lg  bg-green-700 px-7 py-3.5 font-semibold text-white hover:bg-green-800"
               >
                 Submit Another Report
               </button>
@@ -116,11 +124,11 @@ export default function ReportPage() {
 
               {/* Bird Information */}
               <div>
-                <h2 className="text-2xl font-bold text-green-950">
+                <h2 className="text-3xl font-bold text-green-950">
                   Bird Information
                 </h2>
 
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-lg  text-gray-500">
                   Tell us about the bird you found.
                 </p>
               </div>
@@ -129,7 +137,7 @@ export default function ReportPage() {
               {/* Photo */}
               <div className="mt-8">
 
-                <label className="mb-2 block text-sm font-semibold text-gray-700">
+                <label className="mb-2 block text-xl font-semibold text-gray-700">
                   Bird Photo
                 </label>
 
@@ -139,11 +147,11 @@ export default function ReportPage() {
                     📷
                   </span>
 
-                  <span className="mt-3 font-semibold text-green-800">
+                  <span className="mt-3 font-semibold text-lg  text-green-800">
                     Upload Bird Photo
                   </span>
 
-                  <span className="mt-1 text-sm text-gray-500">
+                  <span className="mt-1 text-lg text-gray-500">
                     JPG, PNG or JPEG
                   </span>
 
@@ -164,7 +172,7 @@ export default function ReportPage() {
 
                 <label
                   htmlFor="condition"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-xl font-semibold text-gray-700"
                 >
                   Bird Condition
                 </label>
@@ -172,7 +180,7 @@ export default function ReportPage() {
                 <select
                   id="condition"
                   required
-                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl border text-lg border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 >
                   <option value="">
                     Select condition
@@ -211,7 +219,7 @@ export default function ReportPage() {
 
                 <label
                   htmlFor="description"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-xl font-semibold text-gray-700"
                 >
                   Describe the Situation
                 </label>
@@ -221,7 +229,7 @@ export default function ReportPage() {
                   rows="4"
                   required
                   placeholder="Tell us what happened and where the bird is..."
-                  className="w-full resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full resize-none text-lg rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
@@ -232,7 +240,7 @@ export default function ReportPage() {
 
                 <label
                   htmlFor="location"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-xl font-semibold text-gray-700"
                 >
                   Bird Location
                 </label>
@@ -242,7 +250,7 @@ export default function ReportPage() {
                   type="text"
                   required
                   placeholder="Enter the location where the bird was found"
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
                 {/* Current Location Button */}
@@ -271,7 +279,7 @@ export default function ReportPage() {
                   <div className="mt-4 rounded-2xl bg-green-50 p-4">
 
                     <p className="font-semibold text-green-800">
-                       Location Captured
+                      Location Captured
                     </p>
 
                     <p className="mt-1 text-sm text-gray-600">
@@ -282,7 +290,7 @@ export default function ReportPage() {
                       href={mapLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-3 inline-block text-sm font-semibold text-green-700 underline"
+                      className="mt-3 inline-block text-lg font-semibold text-green-700 underline"
                     >
                       Open Location in Google Maps →
                     </a>
@@ -290,7 +298,7 @@ export default function ReportPage() {
                   </div>
                 )}
 
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-lg text-gray-500">
                   You can enter the location manually or use your current
                   location.
                 </p>
@@ -309,7 +317,7 @@ export default function ReportPage() {
                   Your Contact Details
                 </h2>
 
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-lg text-gray-500">
                   This helps the rescue team contact you if necessary.
                 </p>
 
@@ -323,7 +331,7 @@ export default function ReportPage() {
 
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm font-semibold text-gray-700"
+                    className="mb-2 block text-xl font-semibold text-gray-700"
                   >
                     Your Name
                   </label>
@@ -333,7 +341,7 @@ export default function ReportPage() {
                     type="text"
                     required
                     placeholder="Enter your name"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
 
                 </div>
@@ -344,7 +352,7 @@ export default function ReportPage() {
 
                   <label
                     htmlFor="phone"
-                    className="mb-2 block text-sm font-semibold text-gray-700"
+                    className="mb-2 block text-xl font-semibold text-gray-700"
                   >
                     Phone Number
                   </label>
@@ -354,7 +362,7 @@ export default function ReportPage() {
                     type="tel"
                     required
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
 
                 </div>
@@ -365,13 +373,13 @@ export default function ReportPage() {
               {/* Submit */}
               <button
                 type="submit"
-                className="mt-8 w-full rounded-full bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
+                className="mt-8 w-full rounded-full text-lg bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
               >
                 Submit Rescue Report
               </button>
 
 
-              <p className="mt-4 text-center text-xs leading-5 text-gray-500">
+              <p className="mt-4 text-center text-lg leading-5 text-gray-500">
                 Please provide accurate information so that the rescue team
                 can understand the situation.
               </p>
@@ -405,7 +413,7 @@ export default function ReportPage() {
             Need Immediate Help?
           </h2>
 
-          <p className="mt-3 text-green-100">
+          <p className="mt-3 text-xl  text-green-100">
             For urgent bird rescue assistance, contact Maa Foundation.
           </p>
 
@@ -413,14 +421,14 @@ export default function ReportPage() {
 
             <a
               href="tel:+919820523802"
-              className="rounded-full bg-white px-6 py-3 font-semibold text-green-800 hover:bg-green-100"
+              className="rounded-full text-lg bg-white px-6 py-3 font-semibold text-green-800 hover:bg-green-100"
             >
               +91 9820523802
             </a>
 
             <a
               href="tel:+918655370005"
-              className="rounded-full border border-white px-6 py-3 font-semibold text-white hover:bg-white hover:text-green-800"
+              className="rounded-full border text-lg border-white px-6 py-3 font-semibold text-white hover:bg-white hover:text-green-800"
             >
               +91 8655370005
             </a>

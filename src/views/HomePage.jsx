@@ -5,12 +5,21 @@ export default function HomePage() {
     <div className="bg-white">
 
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden bg-green-50">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 lg:grid-cols-2 lg:px-8 lg:py-24">
+      <section
+        className="relative overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+        }}
+      >
+
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
+
+        <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-40 px-8 py-16 lg:grid-cols-2 lg:gap-20 lg:px-14 lg:py-24">
 
           {/* Hero Content */}
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-800">
+          <div className="lg:justify-self-start">
+            <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-xl font-semibold text-green-800">
               <img
                 src="/images/icons/h1.png"
                 alt="Bird"
@@ -26,7 +35,7 @@ export default function HomePage() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-8 text-gray-600">
+            <p className="mt-6 max-w-xl text-2xl leading-8 text-gray-600">
               If you find an injured bird, don't leave it helpless.
               Report it to Maa Foundation and help us give the bird
               the care it needs to return safely to the sky.
@@ -50,31 +59,44 @@ export default function HomePage() {
 
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-6 text-sm text-gray-600">
-              <span>✓ Rescue</span>
-              <span>✓ Medical Care</span>
-              <span>✓ Rehabilitation</span>
-              <span>✓ Safe Release</span>
+            <div className="mt-8 flex flex-wrap gap-3 text-sm">
+
+              <span className="rounded-full border border-green-200 bg-green-100 px-4 py-2 font-semibold text-green-800 shadow-sm">
+                ✓ Rescue
+              </span>
+
+              <span className="rounded-full border border-blue-200 bg-blue-100 px-4 py-2 font-semibold text-blue-800 shadow-sm">
+                ✓ Medical Care
+              </span>
+
+              <span className="rounded-full border border-emerald-200 bg-emerald-100 px-4 py-2 font-semibold text-emerald-800 shadow-sm">
+                ✓ Rehabilitation
+              </span>
+
+              <span className="rounded-full border border-sky-200 bg-sky-100 px-4 py-2 font-semibold text-sky-800 shadow-sm">
+                ✓ Safe Release
+              </span>
+
             </div>
           </div>
 
           {/* Hero Image */}
-          <div className="relative">
+          <div className="relative lg:justify-self-end w-full max-w-[650px]">
             <div className="overflow-hidden rounded-3xl bg-white p-3 shadow-xl">
               <img
                 src="/images/gallery/home.png"
                 alt="Bird receiving care"
-                className="h-[420px] w-full rounded-2xl object-cover"
+                className="h-[520px] w-full rounded-2xl object-cover"
               />
             </div>
 
             <div className="absolute -bottom-5 -left-4 rounded-2xl bg-white px-5 py-4 shadow-xl">
-              
-              <p className="text-sm font-semibold text-green-800">
+
+              <p className="text-xl font-semibold text-green-800">
                 Every bird deserves
               </p>
 
-              <p className="text-sm text-gray-600">
+              <p className="text-lg text-gray-600">
                 care, safety & freedom.
               </p>
             </div>
@@ -84,10 +106,10 @@ export default function HomePage() {
 
 
       {/* ================= ABOUT PREVIEW ================= */}
-      <section className="bg-white px-5 py-20 lg:px-8">
+      <section className="bg-white px-5 py-20 lg:px-8;">
         <div className="mx-auto max-w-5xl text-center">
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+          <span className="text-xl font-bold uppercase tracking-widest text-green-700">
             About Maa Foundation
           </span>
 
@@ -95,7 +117,7 @@ export default function HomePage() {
             Caring for Birds When They Need Us Most
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl leading-8 text-gray-600">
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
             Maa Foundation is an NGO-based initiative working for bird
             rescue, medical aid and rehabilitation. When an injured bird
             is reported, the team works towards rescuing and caring for it
@@ -104,7 +126,7 @@ export default function HomePage() {
 
           <Link
             href="/about"
-            className="mt-7 inline-block font-semibold text-green-700 hover:text-green-900"
+            className="mt-7 inline-block rounded-full bg-green-700 px-7 py-3.5 text-lg font-semibold text-white shadow-md transition hover:bg-green-800"
           >
             Learn More About Us →
           </Link>
@@ -118,7 +140,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
 
           <div className="text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Our Rescue Process
             </span>
 
@@ -126,7 +148,7 @@ export default function HomePage() {
               From Rescue to Freedom
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
               A simple journey that helps an injured bird receive the
               support it needs.
             </p>
@@ -169,19 +191,19 @@ export default function HomePage() {
                   <img
                     src={item.icon}
                     alt={item.title}
-                    className="h-8 w-8 object-contain"
+                    className="h-12 w-12 object-contain"
                   />
                 </div>
 
-                <span className="mt-5 block text-xs font-bold text-green-600">
+                <span className="mt-5 block text-sm font-bold text-green-600">
                   STEP {item.number}
                 </span>
 
-                <h3 className="mt-2 text-xl font-bold text-green-950">
+                <h3 className="mt-2 text-2xl font-bold text-green-950">
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-gray-600">
+                <p className="mt-3 text-lg leading-6 text-gray-600">
                   {item.text}
                 </p>
               </div>
@@ -199,7 +221,7 @@ export default function HomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-2">
 
             <div>
-              <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+              <span className="text-xl font-bold uppercase tracking-widest text-green-700">
                 Support the Mission
               </span>
 
@@ -207,7 +229,7 @@ export default function HomePage() {
                 You Can Help a Bird Recover
               </h2>
 
-              <p className="mt-5 max-w-xl leading-8 text-gray-600">
+              <p className="mt-5 max-w-xl leading-8 text-lg  text-gray-600">
                 Your support can contribute towards the care and
                 rehabilitation of injured birds. You can support the
                 work through medicines, funds and other necessary care.
@@ -215,7 +237,7 @@ export default function HomePage() {
 
               <Link
                 href="/donate"
-                className="mt-7 inline-block rounded-full bg-green-700 px-7 py-3.5 font-semibold text-white hover:bg-green-800"
+                className="mt-7 inline-block rounded-full bg-green-700 px-7 py-3.5 text-lg font-semibold text-white hover:bg-green-800"
               >
                 See How You Can Help
               </Link>
@@ -228,15 +250,15 @@ export default function HomePage() {
                   <img
                     src="/images/icons/medicin.png"
                     alt="Medicines"
-                    className="h-10 w-10 object-contain"
+                    className="h-12 w-12 object-contain"
                   />
                 </div>
 
-                <h3 className="mt-3 font-bold text-green-950">
+                <h3 className="mt-3 text-2xl font-bold text-green-950">
                   Medicines
                 </h3>
 
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-lg text-gray-600">
                   Help provide necessary medical care.
                 </p>
               </div>
@@ -247,15 +269,15 @@ export default function HomePage() {
                   <img
                     src="/images/icons/fund.webp"
                     alt="Funds"
-                    className="h-10 w-10 object-contain"
+                    className="h-12 w-12 object-contain"
                   />
                 </div>
 
-                <h3 className="mt-3 font-bold text-green-950">
+                <h3 className="mt-3 text-2xl font-bold text-green-950">
                   Funds
                 </h3>
 
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-lg text-gray-600">
                   Support rescue and rehabilitation work.
                 </p>
               </div>
@@ -266,15 +288,15 @@ export default function HomePage() {
                   <img
                     src="/images/icons/v1.png"
                     alt="Volunteer"
-                    className="h-10 w-10 object-contain"
+                    className="h-12 w-12 object-contain"
                   />
                 </div>
 
-                <h3 className="mt-3 font-bold text-green-950">
+                <h3 className="mt-3 text-2xl font-bold text-green-950">
                   Volunteer
                 </h3>
 
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-lg text-gray-600">
                   Give your time and support the mission.
                 </p>
               </div>
@@ -292,7 +314,7 @@ export default function HomePage() {
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
 
             <div>
-              <span className="text-sm font-bold uppercase tracking-widest text-green-300">
+              <span className="text-xl font-bold uppercase tracking-widest text-green-300">
                 Our Gallery
               </span>
 
@@ -308,7 +330,7 @@ export default function HomePage() {
 
             <Link
               href="/gallery"
-              className="font-semibold text-green-300 hover:text-white"
+              className="font-semibold text-lg text-green-300 hover:text-white"
             >
               View Full Gallery →
             </Link>
@@ -355,14 +377,14 @@ export default function HomePage() {
             Want to Help Birds in Need?
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
+          <p className="mx-auto mt-4 max-w-2xl leading-7 text-xl text-gray-600">
             Become a volunteer and be a part of the effort to rescue,
             care for and support injured birds.
           </p>
 
           <Link
             href="/volunteer"
-            className="mt-7 inline-block rounded-full bg-green-700 px-7 py-3.5 font-semibold text-white hover:bg-green-800"
+            className="mt-7 inline-block rounded-full text-lg bg-green-700 px-7 py-3.5 font-semibold text-white hover:bg-green-800"
           >
             Become a Volunteer
           </Link>

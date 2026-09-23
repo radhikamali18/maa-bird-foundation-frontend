@@ -33,10 +33,19 @@ export default function BirdCarePage() {
     <div className="bg-white">
 
       {/* ================= HEADER ================= */}
-      <section className="bg-green-50 px-5 py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+      <section
+        className="relative overflow-hidden bg-cover bg-center px-5 py-20 lg:px-8"
+        style={{
+          backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+        }}
+      >
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
+
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+
+          <span className="text-2xl font-bold uppercase tracking-widest text-green-700">
             Bird Care
           </span>
 
@@ -60,7 +69,7 @@ export default function BirdCarePage() {
 
           <div className="text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Our Care Process
             </span>
 
@@ -68,7 +77,7 @@ export default function BirdCarePage() {
               A Journey Towards Recovery
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+            <p className="mx-auto mt-4 text-lg max-w-2xl text-gray-600">
               Every step is focused on helping an injured bird recover
               safely.
             </p>
@@ -93,15 +102,15 @@ export default function BirdCarePage() {
                   />
                 </div>
 
-                <span className="mt-5 block text-xs font-bold text-green-600">
+                <span className="mt-5 block text-lg font-bold text-green-600">
                   STEP {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <h3 className="mt-2 text-xl font-bold text-green-950">
+                <h3 className="mt-2 text-2xl font-bold text-green-950">
                   {step.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-gray-600">
+                <p className="mt-3 text-lg leading-6 text-gray-600">
                   {step.text}
                 </p>
 
@@ -128,9 +137,9 @@ export default function BirdCarePage() {
 
 
           {/* Content */}
-          <div>
+          <div className="rounded-3xl bg-white p-8 shadow-lg">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Medical Support
             </span>
 
@@ -138,7 +147,7 @@ export default function BirdCarePage() {
               Medical Care for Birds
             </h2>
 
-            <p className="mt-6 leading-8 text-gray-600">
+            <p className="mt-6 leading-8 text-lg  text-gray-600">
               Injured birds may require proper medical attention and
               supportive care. The foundation's care process focuses on
               keeping birds safe and supporting their recovery.
@@ -149,7 +158,7 @@ export default function BirdCarePage() {
               {/* Medical Attention */}
               <div className="flex gap-4">
 
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100 p-2">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-green-100 p-2">
                   <img
                     src="/images/icons/medical care.jpg"
                     alt="Medical Attention"
@@ -158,11 +167,11 @@ export default function BirdCarePage() {
                 </div>
 
                 <div>
-                  <h3 className="font-bold text-green-950">
+                  <h3 className="font-bold text-2xl text-green-950">
                     Medical Attention
                   </h3>
 
-                  <p className="mt-1 text-sm leading-6 text-gray-600">
+                  <p className="mt-1 text-lg leading-6 text-gray-600">
                     Injured birds can receive appropriate care based on
                     their condition.
                   </p>
@@ -174,7 +183,7 @@ export default function BirdCarePage() {
               {/* Medicines */}
               <div className="flex gap-4">
 
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100 p-2">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-green-100 p-2">
                   <img
                     src="/images/icons/medicin.png"
                     alt="Medicines"
@@ -183,11 +192,11 @@ export default function BirdCarePage() {
                 </div>
 
                 <div>
-                  <h3 className="font-bold text-green-950">
+                  <h3 className="font-bold text-2xl text-green-950">
                     Medicines
                   </h3>
 
-                  <p className="mt-1 text-sm leading-6 text-gray-600">
+                  <p className="mt-1 text-lg leading-6 text-gray-600">
                     Necessary medicines and treatment support can help
                     birds during their recovery.
                   </p>
@@ -199,7 +208,7 @@ export default function BirdCarePage() {
               {/* Safe Recovery */}
               <div className="flex gap-4">
 
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100 p-2">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-green-100 p-2">
                   <img
                     src="/images/icons/safe recovery.png"
                     alt="Safe Recovery"
@@ -208,11 +217,11 @@ export default function BirdCarePage() {
                 </div>
 
                 <div>
-                  <h3 className="font-bold text-green-950">
+                  <h3 className="font-bold text-2xl text-green-950">
                     Safe Recovery
                   </h3>
 
-                  <p className="mt-1 text-sm leading-6 text-gray-600">
+                  <p className="mt-1 text-lg leading-6 text-gray-600">
                     Birds are supported in a safe environment while
                     they recover.
                   </p>
@@ -233,7 +242,7 @@ export default function BirdCarePage() {
 
           <div className="mx-auto max-w-3xl text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Support Bird Care
             </span>
 
@@ -241,7 +250,7 @@ export default function BirdCarePage() {
               Help Provide Medicines and Care
             </h2>
 
-            <p className="mt-5 leading-8 text-gray-600">
+            <p className="mt-5 leading-8 text-lg text-gray-600">
               Supporting bird care can help the foundation provide the
               resources required during rescue and rehabilitation.
             </p>
@@ -262,11 +271,11 @@ export default function BirdCarePage() {
                 />
               </div>
 
-              <h3 className="mt-5 text-xl font-bold text-green-950">
+              <h3 className="mt-5 text-2xl font-bold text-green-950">
                 Medicines
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
+              <p className="mt-3 text-lg leading-6 text-gray-600">
                 Support the availability of medicines and necessary
                 medical supplies for birds in care.
               </p>
@@ -285,11 +294,11 @@ export default function BirdCarePage() {
                 />
               </div>
 
-              <h3 className="mt-5 text-xl font-bold text-green-950">
+              <h3 className="mt-5 text-2xl font-bold text-green-950">
                 Funds
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
+              <p className="mt-3 text-lg leading-6 text-gray-600">
                 Financial support can contribute towards rescue,
                 treatment and rehabilitation work.
               </p>
@@ -308,11 +317,11 @@ export default function BirdCarePage() {
                 />
               </div>
 
-              <h3 className="mt-5 text-xl font-bold text-green-950">
+              <h3 className="mt-5 text-2xl font-bold text-green-950">
                 Volunteer Support
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
+              <p className="mt-3 text-lg leading-6 text-gray-600">
                 Volunteers can support the foundation and contribute
                 their time towards the mission.
               </p>
@@ -326,7 +335,7 @@ export default function BirdCarePage() {
 
             <Link
               href="/donate"
-              className="inline-block rounded-full bg-green-700 px-7 py-3.5 font-semibold text-white transition hover:bg-green-800"
+              className="inline-block rounded-full text-lg  bg-green-700 px-7 py-3.5 font-semibold text-white transition hover:bg-green-800"
             >
               Support Bird Care
             </Link>
@@ -354,14 +363,14 @@ export default function BirdCarePage() {
             The Goal Is Freedom
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-8 text-green-100">
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-xl text-green-100">
             Once a bird has recovered and is ready, the goal is to
             release it back into the open sky where it belongs.
           </p>
 
           <Link
             href="/gallery"
-            className="mt-8 inline-block rounded-full bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
+            className="mt-8 inline-block rounded-full text-lg bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
           >
             See Recovered Birds
           </Link>

@@ -14,10 +14,19 @@ export default function VolunteerPage() {
     <div className="bg-white">
 
       {/* ================= HEADER ================= */}
-      <section className="bg-green-50 px-5 py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+      <section
+        className="relative overflow-hidden bg-cover bg-center px-5 py-20 lg:px-8"
+        style={{
+          backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+        }}
+      >
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
+
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+
+          <span className="text-xl font-bold uppercase tracking-widest text-green-700">
             Join Our Team
           </span>
 
@@ -33,14 +42,13 @@ export default function VolunteerPage() {
         </div>
       </section>
 
-
       {/* ================= WHY VOLUNTEER ================= */}
       <section className="px-5 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
 
           <div className="text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Why Volunteer?
             </span>
 
@@ -48,7 +56,7 @@ export default function VolunteerPage() {
               Be a Part of Something Meaningful
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
+            <p className="mx-auto mt-4 text-lg max-w-2xl leading-7 text-gray-600">
               Volunteers can contribute their time and skills to help
               support the foundation's work for birds.
             </p>
@@ -69,11 +77,11 @@ export default function VolunteerPage() {
                 />
               </div>
 
-              <h3 className="mt-5 text-xl font-bold text-green-950">
+              <h3 className="mt-5 text-2xl font-bold text-green-950">
                 Help Birds
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
+              <p className="mt-3 text-lg leading-6 text-gray-600">
                 Support efforts that help injured and rescued birds
                 during their recovery.
               </p>
@@ -92,11 +100,11 @@ export default function VolunteerPage() {
                 />
               </div>
 
-              <h3 className="mt-5 text-xl font-bold text-green-950">
+              <h3 className="mt-5 text-2xl font-bold text-green-950">
                 Support the Team
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
+              <p className="mt-3 text-lg leading-6 text-gray-600">
                 Work together with people who care about animal and
                 bird welfare.
               </p>
@@ -115,11 +123,11 @@ export default function VolunteerPage() {
                 />
               </div>
 
-              <h3 className="mt-5 text-xl font-bold text-green-950">
+              <h3 className="mt-5 text-2xl font-bold text-green-950">
                 Make a Difference
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
+              <p className="mt-3 text-lg leading-6 text-gray-600">
                 Even a small contribution of your time can make a
                 meaningful difference.
               </p>
@@ -172,15 +180,15 @@ export default function VolunteerPage() {
               {/* FORM HEADING */}
               <div className="text-center">
 
-                <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+                <span className="text-xl font-bold uppercase tracking-widest text-green-700">
                   Volunteer Form
                 </span>
 
-                <h2 className="mt-3 text-3xl font-bold text-green-950">
+                <h2 className="mt-3 text-4xl font-bold text-green-950">
                   Tell Us About Yourself
                 </h2>
 
-                <p className="mt-3 text-gray-600">
+                <p className="mt-3 text-lg  text-gray-600">
                   Fill in your details and let us know how you would
                   like to contribute.
                 </p>
@@ -194,7 +202,7 @@ export default function VolunteerPage() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm font-semibold text-gray-700"
+                    className="mb-2 block text-lg font-semibold text-gray-700"
                   >
                     Full Name
                   </label>
@@ -204,7 +212,7 @@ export default function VolunteerPage() {
                     type="text"
                     required
                     placeholder="Enter your full name"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
                 </div>
 
@@ -212,7 +220,7 @@ export default function VolunteerPage() {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="mb-2 block text-sm font-semibold text-gray-700"
+                    className="mb-2 block text-lg font-semibold text-gray-700"
                   >
                     Phone Number
                   </label>
@@ -222,7 +230,7 @@ export default function VolunteerPage() {
                     type="tel"
                     required
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
                 </div>
 
@@ -234,7 +242,7 @@ export default function VolunteerPage() {
 
                 <label
                   htmlFor="email"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-lg font-semibold text-gray-700"
                 >
                   Email Address
                 </label>
@@ -244,7 +252,7 @@ export default function VolunteerPage() {
                   type="email"
                   required
                   placeholder="Enter your email address"
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl border text-lg border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
@@ -255,7 +263,7 @@ export default function VolunteerPage() {
 
                 <label
                   htmlFor="area"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-lg font-semibold text-gray-700"
                 >
                   Your Area
                 </label>
@@ -265,7 +273,7 @@ export default function VolunteerPage() {
                   type="text"
                   required
                   placeholder="Enter your area / locality"
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl border text-lg  border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
@@ -276,7 +284,7 @@ export default function VolunteerPage() {
 
                 <label
                   htmlFor="availability"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-lg font-semibold text-gray-700"
                 >
                   Availability
                 </label>
@@ -284,7 +292,7 @@ export default function VolunteerPage() {
                 <select
                   id="availability"
                   required
-                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl border text-lg border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 >
                   <option value="">
                     Select your availability
@@ -315,7 +323,7 @@ export default function VolunteerPage() {
 
                 <label
                   htmlFor="interest"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-lg font-semibold text-gray-700"
                 >
                   How Would You Like to Help?
                 </label>
@@ -323,7 +331,7 @@ export default function VolunteerPage() {
                 <select
                   id="interest"
                   required
-                  className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl text-lg border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 >
                   <option value="">
                     Select an option
@@ -358,7 +366,7 @@ export default function VolunteerPage() {
 
                 <label
                   htmlFor="message"
-                  className="mb-2 block text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-lg font-semibold text-gray-700"
                 >
                   Why Do You Want to Volunteer?
                 </label>
@@ -368,7 +376,7 @@ export default function VolunteerPage() {
                   rows="5"
                   required
                   placeholder="Tell us a little about why you want to volunteer..."
-                  className="w-full resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full resize-none rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
@@ -377,7 +385,7 @@ export default function VolunteerPage() {
               {/* Submit */}
               <button
                 type="submit"
-                className="mt-8 w-full rounded-full bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
+                className="mt-8 w-full text-lg rounded-full bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
               >
                 Join as a Volunteer
               </button>
@@ -408,7 +416,7 @@ export default function VolunteerPage() {
             Together, We Can Help More Birds
           </h2>
 
-          <p className="mt-4 leading-7 text-green-100">
+          <p className="mt-4 leading-7 text-xl  text-green-100">
             Every helping hand matters. Join us in supporting birds
             that need care and protection.
           </p>

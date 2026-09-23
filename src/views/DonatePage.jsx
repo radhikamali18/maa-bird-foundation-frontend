@@ -25,25 +25,34 @@ export default function DonatePage() {
   return (
     <div className="bg-white">
 
-      {/* ================= HEADER ================= */}
-      <section className="bg-green-50 px-5 py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+      {/* ================= HEADER ================= */} 
+<section
+  className="relative overflow-hidden bg-cover bg-center px-5 py-20 lg:px-8"
+  style={{
+    backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+  }}
+>
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
-            Support Our Work
-          </span>
+  {/* Light Overlay */}
+  <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
 
-          <h1 className="mt-3 text-4xl font-bold text-green-950 md:text-5xl">
-            Help Us Care for Birds
-          </h1>
+  <div className="relative z-10 mx-auto max-w-4xl text-center"> 
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-600">
-            Your support can help provide medicines, medical care and
-            rehabilitation for birds in need.
-          </p>
+    <span className="text-2xl font-bold uppercase tracking-widest text-green-700"> 
+      Support Our Work 
+    </span> 
 
-        </div>
-      </section>
+    <h1 className="mt-3 text-4xl font-bold text-green-950 md:text-5xl"> 
+      Help Us Care for Birds 
+    </h1> 
+
+    <p className="mx-auto mt-5 max-w-2xl text-xl leading-8 text-gray-600"> 
+      Your support can help provide medicines, medical care and 
+      rehabilitation for birds in need. 
+    </p> 
+
+  </div> 
+</section>
 
 
       {/* ================= INTRO ================= */}
@@ -52,7 +61,7 @@ export default function DonatePage() {
 
           <div className="mx-auto max-w-3xl text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Every Contribution Matters
             </span>
 
@@ -60,7 +69,7 @@ export default function DonatePage() {
               Where Your Support Can Help
             </h2>
 
-            <p className="mt-5 leading-8 text-gray-600">
+            <p className="mt-5 text-lg leading-8 text-gray-600">
               Supporting bird rescue and rehabilitation requires care,
               medical supplies and resources. Your contribution can help
               support this work.
@@ -94,11 +103,11 @@ export default function DonatePage() {
 
                 </div>
 
-                <h3 className="mt-5 text-xl font-bold text-green-950">
+                <h3 className="mt-5 text-2xl font-bold text-green-950">
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-gray-600">
+                <p className="mt-3 text-lg leading-6 text-gray-600">
                   {item.text}
                 </p>
 
@@ -132,7 +141,7 @@ export default function DonatePage() {
               Make a Contribution
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl leading-7 text-lg text-gray-600">
               If you would like to support Maa Foundation's work,
               please get in touch with the foundation to learn about
               the available donation and support options.
@@ -145,7 +154,7 @@ export default function DonatePage() {
               <div className="rounded-2xl bg-green-50 p-5">
 
                 {/* IMAGE ADDED */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-2">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-white p-2">
                   <img
                     src="/images/icons/medicin.png"
                     alt="Medicines"
@@ -157,11 +166,11 @@ export default function DonatePage() {
                 <div className="text-2xl">
                 </div>
 
-                <h3 className="mt-3 font-bold text-green-950">
+                <h3 className="mt-3 text-2xl font-bold text-green-950">
                   Medicines
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-lg text-gray-600">
                   Support medical supplies.
                 </p>
               </div>
@@ -170,7 +179,7 @@ export default function DonatePage() {
               <div className="rounded-2xl bg-green-50 p-5">
 
                 {/* IMAGE ADDED */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-2">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-white p-2">
                   <img
                     src="/images/icons/medical care.jpg"
                     alt="Treatment"
@@ -182,11 +191,11 @@ export default function DonatePage() {
                 <div className="text-2xl">
                 </div>
 
-                <h3 className="mt-3 font-bold text-green-950">
+                <h3 className="mt-3 text-2xl font-bold text-green-950">
                   Treatment
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-lg text-gray-600">
                   Support bird medical care.
                 </p>
               </div>
@@ -195,7 +204,7 @@ export default function DonatePage() {
               <div className="rounded-2xl bg-green-50 p-5">
 
                 {/* IMAGE ADDED */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-2">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-white p-2">
                   <img
                     src="/images/icons/fund.webp"
                     alt="General Fund"
@@ -207,11 +216,11 @@ export default function DonatePage() {
                 <div className="text-2xl">
                 </div>
 
-                <h3 className="mt-3 font-bold text-green-950">
+                <h3 className="mt-3 text-2xl font-bold text-green-950">
                   General Fund
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-lg text-gray-600">
                   Support rescue activities.
                 </p>
               </div>
@@ -224,7 +233,7 @@ export default function DonatePage() {
 
               <Link
                 href="/contact"
-                className="inline-block rounded-full bg-green-700 px-8 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
+                className="inline-block rounded-full text-lg  bg-green-700 px-8 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
               >
                 Contact Us for Donation
               </Link>
@@ -254,11 +263,11 @@ export default function DonatePage() {
           <div className="text-3xl">
           </div>
 
-          <h2 className="mt-4 text-xl font-bold text-green-950">
+          <h2 className="mt-4 text-2xl font-bold text-green-950">
             Support with Care
           </h2>
 
-          <p className="mt-3 text-sm leading-7 text-gray-600">
+          <p className="mt-3 text-lg leading-7 text-gray-600">
             Donations and support can help the foundation continue
             providing care and resources for birds in need.
           </p>
@@ -276,7 +285,7 @@ export default function DonatePage() {
             Together, We Can Help More Birds
           </h2>
 
-          <p className="mt-4 leading-7 text-green-100">
+          <p className="mt-4 leading-7 text-lg text-green-100">
             A little support can help provide care to a bird that needs it.
           </p>
 
@@ -284,14 +293,14 @@ export default function DonatePage() {
 
             <Link
               href="/report"
-              className="rounded-full bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
+              className="rounded-full bg-white px-7 py-3.5 text-lg font-semibold text-green-800 transition hover:bg-green-100"
             >
               Report an Injured Bird
             </Link>
 
             <Link
               href="/volunteer"
-              className="rounded-full border border-white px-7 py-3.5 font-semibold text-white transition hover:bg-white hover:text-green-800"
+              className="rounded-full border text-lg  border-white px-7 py-3.5 font-semibold text-white transition hover:bg-white hover:text-green-800"
             >
               Become a Volunteer
             </Link>

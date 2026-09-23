@@ -27,7 +27,7 @@ const birds = [
     description: "A successful recovery bringing the bird closer to freedom.",
   },
   {
-    image: "/images/gallery/images6.jpg",
+    image: "/images/gallery/sky.webp",
     title: "Back to the Sky",
     description: "Another bird ready to continue its journey in the wild.",
   },
@@ -38,10 +38,19 @@ export default function GalleryPage() {
     <div className="bg-white">
 
       {/* Page Header */}
-      <section className="bg-green-50 px-5 py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+      <section
+        className="relative overflow-hidden bg-cover bg-center px-5 py-20 lg:px-8"
+        style={{
+          backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+        }}
+      >
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
+
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+
+          <span className="text-2xl font-bold uppercase tracking-widest text-green-700">
             Maa Foundation
           </span>
 
@@ -56,7 +65,6 @@ export default function GalleryPage() {
 
         </div>
       </section>
-
 
       {/* Gallery */}
       <section className="px-5 py-20 lg:px-8">
@@ -82,13 +90,13 @@ export default function GalleryPage() {
                 {/* Content */}
                 <div className="p-6">
 
-                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
+                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1 text-lg font-semibold text-green-700">
 
                     {/* Small Bird Image */}
                     <img
                       src="/images/icons/release.png"
                       alt="Recovered Bird"
-                      className="h-5 w-5 object-contain"
+                      className="h-10 w-10 object-contain"
                     />
 
                     Recovered Bird
@@ -99,7 +107,7 @@ export default function GalleryPage() {
                     {bird.title}
                   </h2>
 
-                  <p className="mt-2 text-sm leading-6 text-gray-600">
+                  <p className="mt-2 text-lg leading-6 text-gray-600">
                     {bird.description}
                   </p>
 
@@ -129,7 +137,7 @@ export default function GalleryPage() {
             Help Us Give More Birds a Second Chance
           </h2>
 
-          <p className="mt-4 leading-7 text-green-100">
+          <p className="mt-4 leading-7 text-xl text-green-100">
             Your support can help provide medicines, medical care and
             rehabilitation for birds in need.
           </p>
@@ -138,14 +146,14 @@ export default function GalleryPage() {
 
             <Link
               href="/donate"
-              className="rounded-full bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
+              className="rounded-full text-lg bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
             >
               Support Our Work
             </Link>
 
             <Link
               href="/report"
-              className="rounded-full border border-white px-7 py-3.5 font-semibold text-white transition hover:bg-white hover:text-green-800"
+              className="rounded-full border text-lg border-white px-7 py-3.5 font-semibold text-white transition hover:bg-white hover:text-green-800"
             >
               Report an Injured Bird
             </Link>

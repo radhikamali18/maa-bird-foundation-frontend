@@ -73,10 +73,19 @@ export default function SocialMediaPage() {
     <div className="bg-white">
 
       {/* ================= HEADER ================= */}
-      <section className="bg-green-50 px-5 py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+      <section
+        className="relative overflow-hidden bg-cover bg-center px-5 py-20 lg:px-8"
+        style={{
+          backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+        }}
+      >
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
+
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+
+          <span className="text-xl font-bold uppercase tracking-widest text-green-700">
             Social Media
           </span>
 
@@ -93,7 +102,6 @@ export default function SocialMediaPage() {
         </div>
       </section>
 
-
       {/* ================= PLATFORMS ================= */}
       <section className="px-5 py-20 lg:px-8">
 
@@ -101,7 +109,7 @@ export default function SocialMediaPage() {
 
           <div className="text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Follow & Connect
             </span>
 
@@ -109,7 +117,7 @@ export default function SocialMediaPage() {
               Find Us on Social Media
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+            <p className="mx-auto text-lg mt-4 max-w-2xl text-gray-600">
               Follow our social platforms to stay connected with our
               activities and bird welfare work.
             </p>
@@ -136,15 +144,15 @@ export default function SocialMediaPage() {
                     />
                   </div>
 
-                  <h3 className="mt-5 text-xl font-bold text-green-950">
+                  <h3 className="mt-5 text-2xl font-bold text-green-950">
                     {platform.name}
                   </h3>
 
-                  <h4 className="mt-2 font-semibold text-green-700">
+                  <h4 className="mt-2 text-xl font-semibold text-green-700">
                     {platform.title}
                   </h4>
 
-                  <p className="mt-3 text-sm leading-6 text-gray-600">
+                  <p className="mt-3 text-lg leading-6 text-gray-600">
                     {platform.text}
                   </p>
 
@@ -160,7 +168,7 @@ export default function SocialMediaPage() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="mt-6 inline-block rounded-full bg-green-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-800"
+                    className="mt-6 inline-block rounded-full bg-green-700 px-6 py-3 text-lg font-semibold text-white transition hover:bg-green-800"
                   >
                     {platform.button}
                   </a>
@@ -183,7 +191,7 @@ export default function SocialMediaPage() {
 
           <div className="mx-auto max-w-3xl text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Our Social Media Strategy
             </span>
 
@@ -191,7 +199,7 @@ export default function SocialMediaPage() {
               Using Social Media for a Good Cause
             </h2>
 
-            <p className="mt-5 leading-8 text-gray-600">
+            <p className="mt-5 leading-8 text-lg  text-gray-600">
               Social media can help community-based organizations reach
               more people, communicate their work and encourage community
               participation.
@@ -209,7 +217,7 @@ export default function SocialMediaPage() {
               >
 
                 {/* IMAGE ICON */}
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green-100 p-2">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-green-100 p-2">
                   <img
                     src={goal.icon}
                     alt={goal.title}
@@ -219,11 +227,11 @@ export default function SocialMediaPage() {
 
                 <div>
 
-                  <h3 className="text-xl font-bold text-green-950">
+                  <h3 className="text-2xl font-bold text-green-950">
                     {goal.title}
                   </h3>
 
-                  <p className="mt-2 text-sm leading-7 text-gray-600">
+                  <p className="mt-2 text-lg leading-7 text-gray-600">
                     {goal.text}
                   </p>
 
@@ -246,7 +254,7 @@ export default function SocialMediaPage() {
 
           <div className="text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Content We Can Share
             </span>
 
@@ -263,7 +271,7 @@ export default function SocialMediaPage() {
             <div className="rounded-3xl border border-gray-100 p-7">
 
               {/* IMAGE */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 p-2">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 p-2">
                 <img
                   src="/images/icons/rescue.png"
                   alt="Rescue Updates"
@@ -271,11 +279,11 @@ export default function SocialMediaPage() {
                 />
               </div>
 
-              <h3 className="mt-4 text-xl font-bold text-green-950">
+              <h3 className="mt-4 text-2xl font-bold text-green-950">
                 Rescue Updates
               </h3>
 
-              <p className="mt-3 text-sm leading-7 text-gray-600">
+              <p className="mt-3 text-lg leading-7 text-gray-600">
                 Share updates about birds that have been rescued and
                 are receiving care.
               </p>
@@ -287,7 +295,7 @@ export default function SocialMediaPage() {
             <div className="rounded-3xl border border-gray-100 p-7">
 
               {/* IMAGE */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 p-2">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 p-2">
                 <img
                   src="/images/icons/safe recovery.png"
                   alt="Recovery Stories"
@@ -295,11 +303,11 @@ export default function SocialMediaPage() {
                 />
               </div>
 
-              <h3 className="mt-4 text-xl font-bold text-green-950">
+              <h3 className="mt-4 text-2xl font-bold text-green-950">
                 Recovery Stories
               </h3>
 
-              <p className="mt-3 text-sm leading-7 text-gray-600">
+              <p className="mt-3 text-lg leading-7 text-gray-600">
                 Share the journey of recovered birds and their return
                 to the open sky.
               </p>
@@ -311,7 +319,7 @@ export default function SocialMediaPage() {
             <div className="rounded-3xl border border-gray-100 p-7">
 
               {/* IMAGE */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 p-2">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 p-2">
                 <img
                   src="/images/icons/1.png"
                   alt="Awareness Posts"
@@ -319,11 +327,11 @@ export default function SocialMediaPage() {
                 />
               </div>
 
-              <h3 className="mt-4 text-xl font-bold text-green-950">
+              <h3 className="mt-4 text-2xl font-bold text-green-950">
                 Awareness Posts
               </h3>
 
-              <p className="mt-3 text-sm leading-7 text-gray-600">
+              <p className="mt-3 text-lg leading-7 text-gray-600">
                 Share useful information that encourages people to
                 notice and help injured birds.
               </p>
@@ -355,7 +363,7 @@ export default function SocialMediaPage() {
             Be a Voice for Birds
           </h2>
 
-          <p className="mt-4 leading-7 text-green-100">
+          <p className="mt-4 leading-7 text-xl  text-green-100">
             Follow, share and spread awareness so that more people can
             learn how to help birds in need.
           </p>
@@ -367,7 +375,7 @@ export default function SocialMediaPage() {
               href="https://www.instagram.com/maabirdhelpline?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
+              className="rounded-full text-lg  bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
             >
               Follow on Instagram
             </a>
@@ -376,7 +384,7 @@ export default function SocialMediaPage() {
             {/* Report Bird */}
             <Link
               href="/report"
-              className="rounded-full border border-white px-7 py-3.5 font-semibold text-white transition hover:bg-white hover:text-green-800"
+              className="rounded-full border text-lg  border-white px-7 py-3.5 font-semibold text-white transition hover:bg-white hover:text-green-800"
             >
               Report an Injured Bird
             </Link>

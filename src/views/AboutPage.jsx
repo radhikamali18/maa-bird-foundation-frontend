@@ -4,11 +4,20 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
 
-      {/* ================= PAGE HEADER ================= */}
-      <section className="bg-green-50 px-5 py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+      {/* ================= PAGE HEADER / HERO ================= */}
+      <section
+        className="relative overflow-hidden bg-cover bg-center px-5 py-20 lg:px-8"
+        style={{
+          backgroundImage: "url('/images/gallery/hero-bird-bg.png')",
+        }}
+      >
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-[#F2EBDD]/60"></div>
+
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+
+          <span className="text-2xl font-bold uppercase tracking-widest text-green-700">
             About Maa Foundation
           </span>
 
@@ -16,21 +25,19 @@ export default function AboutPage() {
             Caring for Birds with Compassion
           </h1>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-600">
-            Maa (Medical Aid For Birds) Foundation is an NGO-based initiative working towards 
+          <p className="mx-auto mt-5 max-w-2xl text-xl leading-8 text-gray-600">
+            Maa (Medical Aid For Birds) Foundation is an NGO-based initiative working towards
             the rescue, medical care and rehabilitation of birds in need.
           </p>
 
         </div>
       </section>
 
-
       {/* ================= INTRODUCTION ================= */}
       <section className="px-5 py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-
+        <div className="mx-auto grid max-w-7xl items-center lg:grid-cols-2 lg:gap-16">
           {/* Image */}
-          <div className="overflow-hidden rounded-3xl bg-green-50 p-3 shadow-lg">
+          <div className="lg:justify-self-start overflow-hidden rounded-3xl bg-green-50 p-3 shadow-lg">
             <img
               src="/images/gallery/about image.avif"
               alt="Birds receiving care"
@@ -39,9 +46,9 @@ export default function AboutPage() {
           </div>
 
           {/* Content */}
-          <div>
+          <div className="lg:justify-self-end rounded-3xl bg-white p-8 shadow-lg">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Who We Are
             </span>
 
@@ -49,18 +56,18 @@ export default function AboutPage() {
               A Safe Place for Birds in Need
             </h2>
 
-            <p className="mt-6 leading-8 text-gray-600">
-              Maa Foundation works for the rescue, medical care and 
-              rehabilitation of injured birds. When a bird is found 
-              injured or unable to fly, people can report the situation 
-              to the foundation so that the bird can receive the 
+            <p className="mt-6 leading-8 text-lg text-gray-600">
+              Maa Foundation works for the rescue, medical care and
+              rehabilitation of injured birds. When a bird is found
+              injured or unable to fly, people can report the situation
+              to the foundation so that the bird can receive the
               necessary care.
             </p>
 
-            <p className="mt-4 leading-8 text-gray-600">
-              The foundation focuses on helping birds recover in a safe 
-              environment. Once a bird becomes healthy and is ready, 
-              the goal is to return it to its natural environment and 
+            <p className="mt-4 leading-8 text-lg text-gray-600">
+              The foundation focuses on helping birds recover in a safe
+              environment. Once a bird becomes healthy and is ready,
+              the goal is to return it to its natural environment and
               give it the freedom to fly again.
             </p>
 
@@ -84,7 +91,7 @@ export default function AboutPage() {
 
           <div className="mx-auto max-w-3xl text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               Our Foundation
             </span>
 
@@ -92,11 +99,11 @@ export default function AboutPage() {
               An NGO-Based Community Initiative
             </h2>
 
-            <p className="mt-5 leading-8 text-gray-600">
-              Maa Foundation is presented as an NGO-based initiative 
-              dedicated to supporting birds through rescue, care and 
-              rehabilitation. The foundation is also associated with 
-              the values of a Jain Trust, where compassion and care 
+            <p className="mt-5 leading-8 text-lg text-gray-600">
+              Maa Foundation is presented as an NGO-based initiative
+              dedicated to supporting birds through rescue, care and
+              rehabilitation. The foundation is also associated with
+              the values of a Jain Trust, where compassion and care
               towards living beings are important.
             </p>
 
@@ -120,9 +127,9 @@ export default function AboutPage() {
                 NGO-Based Work
               </h3>
 
-              <p className="mt-3 leading-7 text-gray-600">
-                The foundation works with people and volunteers to 
-                support the rescue and care of injured birds and help 
+              <p className="mt-3 leading-7 text-lg text-gray-600">
+                The foundation works with people and volunteers to
+                support the rescue and care of injured birds and help
                 them during their recovery.
               </p>
 
@@ -144,9 +151,9 @@ export default function AboutPage() {
                 Jain Trust Values
               </h3>
 
-              <p className="mt-3 leading-7 text-gray-600">
-                The work reflects values of compassion, kindness and 
-                care towards living beings, supporting the idea of 
+              <p className="mt-3 leading-7 text-lg text-gray-600">
+                The work reflects values of compassion, kindness and
+                care towards living beings, supporting the idea of
                 protecting and helping birds in need.
               </p>
 
@@ -163,7 +170,7 @@ export default function AboutPage() {
 
           <div className="text-center">
 
-            <span className="text-sm font-bold uppercase tracking-widest text-green-700">
+            <span className="text-xl font-bold uppercase tracking-widest text-green-700">
               What We Do
             </span>
 
@@ -186,12 +193,12 @@ export default function AboutPage() {
                 />
               </div>
 
-              <h3 className="mt-4 text-xl font-bold text-green-950">
+              <h3 className="mt-4 text-2xl font-bold text-green-950">
                 Report
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                People can share information and a photo of an injured 
+              <p className="mt-3 text-lg leading-6 text-gray-600">
+                People can share information and a photo of an injured
                 bird.
               </p>
             </div>
@@ -208,12 +215,12 @@ export default function AboutPage() {
                 />
               </div>
 
-              <h3 className="mt-4 text-xl font-bold text-green-950">
+              <h3 className="mt-4 text-2xl font-bold text-green-950">
                 Rescue
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                The rescue team can help the injured bird and bring it 
+              <p className="mt-3 text-lg leading-6 text-gray-600">
+                The rescue team can help the injured bird and bring it
                 to a safe place.
               </p>
             </div>
@@ -230,12 +237,12 @@ export default function AboutPage() {
                 />
               </div>
 
-              <h3 className="mt-4 text-xl font-bold text-green-950">
+              <h3 className="mt-4 text-2xl font-bold text-green-950">
                 Care
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                Birds receive necessary medical care and support during 
+              <p className="mt-3 text-lg   leading-6 text-gray-600">
+                Birds receive necessary medical care and support during
                 rehabilitation.
               </p>
             </div>
@@ -252,12 +259,12 @@ export default function AboutPage() {
                 />
               </div>
 
-              <h3 className="mt-4 text-xl font-bold text-green-950">
+              <h3 className="mt-4 text-2xl font-bold text-green-950">
                 Release
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                After recovery, the bird can return to its natural 
+              <p className="mt-3 text-lg leading-6 text-gray-600">
+                After recovery, the bird can return to its natural
                 environment.
               </p>
             </div>
@@ -271,7 +278,7 @@ export default function AboutPage() {
       <section className="bg-green-950 px-5 py-20 text-white lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
 
-          <span className="text-sm font-bold uppercase tracking-widest text-green-300">
+          <span className="text-xl font-bold uppercase tracking-widest text-green-300">
             Our Mission
           </span>
 
@@ -279,9 +286,9 @@ export default function AboutPage() {
             Give Every Bird a Chance to Fly Again
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-8 text-green-100">
-            Our aim is to encourage people to help injured birds, 
-            connect them with rescue support and contribute towards 
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-lg text-green-100">
+            Our aim is to encourage people to help injured birds,
+            connect them with rescue support and contribute towards
             their care and rehabilitation.
           </p>
 
