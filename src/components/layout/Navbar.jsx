@@ -34,11 +34,11 @@ export default function Navbar() {
           />
 
           <div className="leading-tight">
-            <p className="text-2xl font-bold text-green-950">
+            <p className="text-xl font-bold text-green-950">
               Maa Foundation
             </p>
 
-            <p className="mt-1 text-xl font-medium text-green-700">
+            <p className="mt-1 text-lg font-medium text-green-700">
               Caring for Birds
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="whitespace-nowrap px-1 text-xl font-semibold text-gray-700 transition hover:text-green-700"
+              className="whitespace-nowrap px-1 text-lg font-semibold text-gray-700 transition hover:text-green-700"
             >
               {link.name}
             </Link>
@@ -61,7 +61,7 @@ export default function Navbar() {
           {/* Report Button */}
           <Link
             href="/report"
-            className="whitespace-nowrap rounded-full bg-green-700 px-6 py-3 text-xl font-semibold text-white shadow-sm transition hover:bg-green-800"
+            className="whitespace-nowrap rounded-full bg-green-700 px-6 py-3 text-lg font-semibold text-white shadow-sm transition hover:bg-green-800"
           >
             Report a Bird
           </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
           {/* Support Button */}
           <Link
             href="/donate"
-            className="whitespace-nowrap rounded-full border-2 border-green-700 px-6 py-3 text-xl font-semibold text-green-700 transition hover:bg-green-50"
+            className="whitespace-nowrap rounded-full border-2 border-green-700 px-6 py-3 text-lg font-semibold text-green-700 transition hover:bg-green-50"
           >
             Support Us
           </Link>

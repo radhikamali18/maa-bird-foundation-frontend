@@ -106,27 +106,42 @@ export default function HomePage() {
 
 
       {/* ================= ABOUT PREVIEW ================= */}
-      <section className="bg-white px-5 py-20 lg:px-8;">
-        <div className="mx-auto max-w-5xl text-center">
+      <section className="bg-white px-5 py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl text-center">
 
-          <span className="text-xl font-bold uppercase tracking-widest text-green-700">
-            About Maa Foundation
-          </span>
+          {/* Three Cards */}
+          <div className="grid gap-6 md:grid-cols-3">
 
-          <h2 className="mt-3 text-3xl font-bold text-green-950 md:text-4xl">
-            Caring for Birds When They Need Us Most
-          </h2>
+            {/* Card 1 */}
+            <div className="flex items-center justify-center rounded-2xl bg-white p-6 text-center shadow-md">
+              <span className="text-xl font-bold uppercase tracking-widest text-green-700">
+                About Maa Foundation
+              </span>
+            </div>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
-            Maa Foundation is an NGO-based initiative working for bird
-            rescue, medical aid and rehabilitation. When an injured bird
-            is reported, the team works towards rescuing and caring for it
-            until it is healthy enough to return to the open sky.
-          </p>
+            {/* Card 2 */}
+            <div className="flex items-center justify-center rounded-2xl bg-white p-6 text-center shadow-md">
+              <h2 className="text-3xl font-bold text-green-950">
+                Caring for Birds When They Need Us Most
+              </h2>
+            </div>
 
+            {/* Card 3 */}
+            <div className="rounded-2xl bg-white p-6 shadow-md">
+              <p className="text-lg leading-8 text-gray-600">
+                Maa Foundation is an NGO-based initiative working for bird
+                rescue, medical aid and rehabilitation. When an injured bird
+                is reported, the team works towards rescuing and caring for it
+                until it is healthy enough to return to the open sky.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Button */}
           <Link
             href="/about"
-            className="mt-7 inline-block rounded-full bg-green-700 px-7 py-3.5 text-lg font-semibold text-white shadow-md transition hover:bg-green-800"
+            className="mt-7 inline-block rounded-full bg-green-700 px-5 py-2.5 text-base font-semibold text-white shadow-md transition hover:bg-green-800"
           >
             Learn More About Us →
           </Link>
