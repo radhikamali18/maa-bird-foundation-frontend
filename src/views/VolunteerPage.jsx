@@ -5,10 +5,51 @@ import { useState } from "react";
 export default function VolunteerPage() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    area: "",
+    availability: "",
+    interest: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost:5000/api/volunteers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.message || "Something went wrong");
+      return;
+    }
+
     setSubmitted(true);
-  };
+
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      area: "",
+      availability: "",
+      interest: "",
+      message: "",
+    });
+  } catch (error) {
+    console.error("Volunteer Form Error:", error);
+    alert("Unable to submit form. Please try again.");
+  }
+};
 
   return (
     <div className="bg-white">
@@ -63,7 +104,6 @@ export default function VolunteerPage() {
 
           </div>
 
-
           <div className="mt-12 grid gap-6 md:grid-cols-3">
 
             {/* Card 1 */}
@@ -88,7 +128,6 @@ export default function VolunteerPage() {
 
             </div>
 
-
             {/* Card 2 */}
             <div className="rounded-3xl border border-gray-100 bg-white p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
 
@@ -110,7 +149,6 @@ export default function VolunteerPage() {
               </p>
 
             </div>
-
 
             {/* Card 3 */}
             <div className="rounded-3xl border border-gray-100 bg-white p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
@@ -138,7 +176,6 @@ export default function VolunteerPage() {
 
         </div>
       </section>
-
 
       {/* ================= VOLUNTEER FORM ================= */}
       <section className="bg-green-50 px-5 py-20 lg:px-8">
@@ -188,13 +225,12 @@ export default function VolunteerPage() {
                   Tell Us About Yourself
                 </h2>
 
-                <p className="mt-3 text-lg  text-gray-600">
+                <p className="mt-3 text-lg text-gray-600">
                   Fill in your details and let us know how you would
                   like to contribute.
                 </p>
 
               </div>
-
 
               {/* Name + Phone */}
               <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -211,11 +247,17 @@ export default function VolunteerPage() {
                     id="name"
                     type="text"
                     required
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        name: e.target.value,
+                      })
+                    }
                     placeholder="Enter your full name"
                     className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
                 </div>
-
 
                 <div>
                   <label
@@ -229,13 +271,19 @@ export default function VolunteerPage() {
                     id="phone"
                     type="tel"
                     required
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        phone: e.target.value,
+                      })
+                    }
                     placeholder="+91 XXXXX XXXXX"
                     className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
                 </div>
 
               </div>
-
 
               {/* Email */}
               <div className="mt-6">
@@ -251,12 +299,18 @@ export default function VolunteerPage() {
                   id="email"
                   type="email"
                   required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      email: e.target.value,
+                    })
+                  }
                   placeholder="Enter your email address"
                   className="w-full rounded-xl border text-lg border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
-
 
               {/* Area */}
               <div className="mt-6">
@@ -272,12 +326,18 @@ export default function VolunteerPage() {
                   id="area"
                   type="text"
                   required
+                  value={formData.area}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      area: e.target.value,
+                    })
+                  }
                   placeholder="Enter your area / locality"
-                  className="w-full rounded-xl border text-lg  border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl border text-lg border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
-
 
               {/* Availability */}
               <div className="mt-6">
@@ -292,6 +352,13 @@ export default function VolunteerPage() {
                 <select
                   id="availability"
                   required
+                  value={formData.availability}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      availability: e.target.value,
+                    })
+                  }
                   className="w-full rounded-xl border text-lg border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 >
                   <option value="">
@@ -317,7 +384,6 @@ export default function VolunteerPage() {
 
               </div>
 
-
               {/* Interest */}
               <div className="mt-6">
 
@@ -331,6 +397,13 @@ export default function VolunteerPage() {
                 <select
                   id="interest"
                   required
+                  value={formData.interest}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      interest: e.target.value,
+                    })
+                  }
                   className="w-full rounded-xl text-lg border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 >
                   <option value="">
@@ -360,7 +433,6 @@ export default function VolunteerPage() {
 
               </div>
 
-
               {/* Message */}
               <div className="mt-6">
 
@@ -375,12 +447,18 @@ export default function VolunteerPage() {
                   id="message"
                   rows="5"
                   required
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      message: e.target.value,
+                    })
+                  }
                   placeholder="Tell us a little about why you want to volunteer..."
                   className="w-full resize-none rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
               </div>
-
 
               {/* Submit */}
               <button
@@ -396,7 +474,6 @@ export default function VolunteerPage() {
 
         </div>
       </section>
-
 
       {/* ================= BOTTOM CTA ================= */}
       <section className="bg-green-950 px-5 py-16 text-center text-white lg:px-8">
@@ -416,7 +493,7 @@ export default function VolunteerPage() {
             Together, We Can Help More Birds
           </h2>
 
-          <p className="mt-4 leading-7 text-xl  text-green-100">
+          <p className="mt-4 leading-7 text-xl text-green-100">
             Every helping hand matters. Join us in supporting birds
             that need care and protection.
           </p>
