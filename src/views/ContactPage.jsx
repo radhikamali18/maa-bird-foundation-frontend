@@ -1,13 +1,58 @@
+
 "use client";
 
 import { useState } from "react";
+import { createContact } from "@/api/contactApi";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  // ================= FORM STATES =================
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  // ================= SUBMIT STATE =================
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    try {
+      setSubmitting(true);
+
+      const contactData = {
+        name,
+        phone,
+        email,
+        subject,
+        message,
+      };
+
+      console.log("Contact data:", contactData);
+
+      await createContact(contactData);
+
+      setSubmitted(true);
+
+      // Clear form
+      setName("");
+      setPhone("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
+    } catch (error) {
+      console.error("Contact submit error:", error);
+
+      alert(
+        error?.response?.data?.message ||
+          "Failed to send message. Please try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -209,7 +254,7 @@ export default function ContactPage() {
                   How Can We Help?
                 </h2>
 
-                <p className="mt-3 text-lg  text-gray-600">
+                <p className="mt-3 text-lg text-gray-600">
                   Fill in the form below and share your message with us.
                 </p>
 
@@ -233,6 +278,8 @@ export default function ContactPage() {
                     type="text"
                     required
                     placeholder="Enter your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
 
@@ -253,6 +300,8 @@ export default function ContactPage() {
                     type="tel"
                     required
                     placeholder="+91 XXXXX XXXXX"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
 
@@ -276,6 +325,8 @@ export default function ContactPage() {
                   type="email"
                   required
                   placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
@@ -295,6 +346,8 @@ export default function ContactPage() {
                 <select
                   id="subject"
                   required
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
                   className="w-full rounded-xl text-lg border border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 >
 
@@ -338,6 +391,8 @@ export default function ContactPage() {
                   rows="5"
                   required
                   placeholder="Write your message..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="w-full resize-none rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
 
@@ -347,9 +402,10 @@ export default function ContactPage() {
               {/* Submit */}
               <button
                 type="submit"
-                className="mt-8 w-full rounded-full text-lg  bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
+                disabled={submitting}
+                className="mt-8 w-full rounded-full text-lg bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800 disabled:opacity-60"
               >
-                Send Message
+                {submitting ? "Sending..." : "Send Message"}
               </button>
 
             </form>
@@ -374,7 +430,7 @@ export default function ContactPage() {
               Our Location
             </h2>
 
-            <p className="mt-3 text-lg  text-gray-600">
+            <p className="mt-3 text-lg text-gray-600">
               Maa Foundation, Andheri East, Mumbai
             </p>
 
@@ -417,14 +473,14 @@ export default function ContactPage() {
             Found an Injured Bird?
           </h2>
 
-          <p className="mt-4 leading-7 text-xl  text-green-100">
+          <p className="mt-4 leading-7 text-xl text-green-100">
             Share the bird's photo and location so the rescue team can
             understand the situation.
           </p>
 
           <a
             href="/report"
-            className="mt-7 inline-block rounded-full text-lg  bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
+            className="mt-7 inline-block rounded-full text-lg bg-white px-7 py-3.5 font-semibold text-green-800 transition hover:bg-green-100"
           >
             Report an Injured Bird
           </a>

@@ -1,18 +1,75 @@
+
 "use client";
 
 import { useState } from "react";
+import { createReport } from "@/api/reportApi";
 
 export default function ReportPage() {
   const [submitted, setSubmitted] = useState(false);
+
+  // Form data
+  const [birdPhoto, setBirdPhoto] = useState(null);
+  const [condition, setCondition] = useState("");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
   // Location feature
   const [userLocation, setUserLocation] = useState("");
   const [locationLoading, setLocationLoading] = useState(false);
   const [mapLink, setMapLink] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
-  const handleSubmit = (e) => {
+  // Submit loading
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+console.log("SUBMIT CLICKED");
+    if (!birdPhoto) {
+      alert("Please select a bird photo.");
+      return;
+    }
+
+    try {
+      setSubmitting(true);
+
+      const formData = new FormData();
+
+      formData.append("image", birdPhoto);
+      formData.append("condition", condition);
+      formData.append("description", description);
+      formData.append("location", location);
+      formData.append("name", name);
+      formData.append("phone", phone);
+
+      if (latitude) {
+        formData.append("latitude", latitude);
+      }
+
+      if (longitude) {
+        formData.append("longitude", longitude);
+      }
+
+      if (mapLink) {
+        formData.append("mapLink", mapLink);
+      }
+
+      await createReport(formData);
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Report submit error:", error);
+
+      alert(
+        error?.response?.data?.message ||
+          "Failed to submit report. Please try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   // Get user's current location
@@ -28,6 +85,9 @@ export default function ReportPage() {
       (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
+
+        setLatitude(latitude);
+        setLongitude(longitude);
 
         const locationText = `Latitude: ${latitude}, Longitude: ${longitude}`;
 
@@ -106,10 +166,18 @@ export default function ReportPage() {
               <button
                 onClick={() => {
                   setSubmitted(false);
+                  setBirdPhoto(null);
+                  setCondition("");
+                  setDescription("");
+                  setLocation("");
+                  setName("");
+                  setPhone("");
                   setUserLocation("");
                   setMapLink("");
+                  setLatitude("");
+                  setLongitude("");
                 }}
-                className="mt-7 rounded-full text-lg  bg-green-700 px-7 py-3.5 font-semibold text-white hover:bg-green-800"
+                className="mt-7 rounded-full text-lg bg-green-700 px-7 py-3.5 font-semibold text-white hover:bg-green-800"
               >
                 Submit Another Report
               </button>
@@ -128,7 +196,7 @@ export default function ReportPage() {
                   Bird Information
                 </h2>
 
-                <p className="mt-2 text-lg  text-gray-500">
+                <p className="mt-2 text-lg text-gray-500">
                   Tell us about the bird you found.
                 </p>
               </div>
@@ -147,7 +215,7 @@ export default function ReportPage() {
                     📷
                   </span>
 
-                  <span className="mt-3 font-semibold text-lg  text-green-800">
+                  <span className="mt-3 font-semibold text-lg text-green-800">
                     Upload Bird Photo
                   </span>
 
@@ -160,6 +228,9 @@ export default function ReportPage() {
                     accept="image/png,image/jpeg,image/jpg"
                     className="hidden"
                     required
+                    onChange={(e) => {
+                      setBirdPhoto(e.target.files?.[0] || null);
+                    }}
                   />
 
                 </label>
@@ -180,6 +251,8 @@ export default function ReportPage() {
                 <select
                   id="condition"
                   required
+                  value={condition}
+                  onChange={(e) => setCondition(e.target.value)}
                   className="w-full rounded-xl border text-lg border-gray-300 bg-white px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 >
                   <option value="">
@@ -228,6 +301,8 @@ export default function ReportPage() {
                   id="description"
                   rows="4"
                   required
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                   placeholder="Tell us what happened and where the bird is..."
                   className="w-full resize-none text-lg rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
@@ -249,6 +324,8 @@ export default function ReportPage() {
                   id="location"
                   type="text"
                   required
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                   placeholder="Enter the location where the bird was found"
                   className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                 />
@@ -340,6 +417,8 @@ export default function ReportPage() {
                     id="name"
                     type="text"
                     required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your name"
                     className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
@@ -361,6 +440,8 @@ export default function ReportPage() {
                     id="phone"
                     type="tel"
                     required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 XXXXX XXXXX"
                     className="w-full rounded-xl text-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
                   />
@@ -373,9 +454,12 @@ export default function ReportPage() {
               {/* Submit */}
               <button
                 type="submit"
-                className="mt-8 w-full rounded-full text-lg bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800"
+                disabled={submitting}
+                className="mt-8 w-full rounded-full text-lg bg-green-700 px-7 py-4 font-semibold text-white shadow-md transition hover:bg-green-800 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Submit Rescue Report
+                {submitting
+                  ? "Submitting Report..."
+                  : "Submit Rescue Report"}
               </button>
 
 
@@ -413,7 +497,7 @@ export default function ReportPage() {
             Need Immediate Help?
           </h2>
 
-          <p className="mt-3 text-xl  text-green-100">
+          <p className="mt-3 text-xl text-green-100">
             For urgent bird rescue assistance, contact Maa Foundation.
           </p>
 
