@@ -1,6 +1,30 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getGallery } from "@/api/galleryApi";
 export default function HomePage() {
+  const [galleryImages, setGalleryImages] = useState([]);
+
+useEffect(() => {
+  const fetchGallery = async () => {
+    try {
+      const response = await getGallery();
+
+      if (response.success) {
+        const publishedImages = response.data.filter(
+          (item) => item.status === "Published" && item.image
+        );
+
+        setGalleryImages(publishedImages.slice(0, 3));
+      }
+    } catch (error) {
+      console.error("Gallery fetch error:", error);
+    }
+  };
+
+  fetchGallery();
+}, []);
   return (
     <div className="bg-white">
 
@@ -354,24 +378,20 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
-            {[
-              "/images/gallery/recoverd 1.jpg",
-              "/images/gallery/recoverd 2.jpg",
-              "/images/gallery/recoverd 3.jpg",
-            ].map((image, index) => (
-              <div
-                key={image}
-                className="overflow-hidden rounded-2xl bg-green-900"
-              >
-                <img
-                  src={image}
-                  alt={`Recovered bird ${index + 1}`}
-                  className="h-64 w-full object-cover transition duration-500 hover:scale-105"
-                />
-              </div>
-            ))}
+  {galleryImages.map((item) => (
+    <div
+      key={item._id}
+      className="overflow-hidden rounded-2xl bg-green-900"
+    >
+      <img
+        src={item.image}
+        alt={item.title || "Recovered bird"}
+        className="h-64 w-full object-cover transition duration-500 hover:scale-105"
+      />
+    </div>
+  ))}
 
-          </div>
+</div>
         </div>
       </section>
 
